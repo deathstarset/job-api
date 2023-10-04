@@ -30,6 +30,7 @@ const register = async (req, res) => {
     .json({ user: { name: user.getName() }, token });
 };
 const login = async (req, res) => {
+  console.log("this is comming from login");
   const { email, password } = req.body;
   if (!email || !password) {
     throw new BadRequestError("Please provide email and password");

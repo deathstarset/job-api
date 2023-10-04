@@ -34,8 +34,8 @@ app.get("/", (req, res) => {
 // routes
 app.use("/api/v1/auth", authRouter);
 // for routes that need auth to get access to we add the auth middleware before those routes
-app.use(notFoundMiddleware);
 
+app.use(notFoundMiddleware); // this must be above the authorization middleware or else any route that is not defined will requier an authorization token
 app.use(auth);
 app.use("/api/v1/jobs", jobsRouter);
 
